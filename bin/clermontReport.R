@@ -72,5 +72,17 @@ clermonT_2 <-
 
 kable(clermonT_2)
 
+messaga <- c()
+for(i in 1:nrow(clermonT_2)){
+  curr_phylo <- clermonT_2[i, "phylogroup"]
+  curr_mash <- str_replace_all(string = clermonT_2[i, "mash_group"], pattern = "\\*", replacement = "")
+  curr_file <- clermonT_2[i, "file"]
+  if(!(curr_phylo == curr_mash)){
+    messaga[i] <- 
+      paste0("Warning in : ", curr_file,".\tThe Clermont phylogroup doesn't match the mash closest neighbor's group !")
+  }
+}
+cat(x = messaga, sep = "\n")
+
 #' A star next to the mash_group results may indicate that the input sequence 
 #' is a mix between multiple *E. coli* genomes (i.e a metagenome or a recombined genome).
