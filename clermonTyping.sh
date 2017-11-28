@@ -56,11 +56,12 @@ function blast_analysis(){
 	${MY_PATH}/bin/blastn -query $PRIMERS -perc_identity $PERC_IDENTITY -task $BLAST_TASK -outfmt 5 -db $WORKING_DIR/db/$FASTA_NAME -out $WORKING_DIR/$FASTA_NAME.xml
 }
 
-report_calling(){
+function report_calling(){
 	# rscript = path to clermontReport.R
 	# clermont_out = path to clermonTyping output 
 	# namus = report name
 	# out_dir = self explanatory!
+	echo "============= Generating report ==============="
 	rscript=$1
 	shift
 	clermont_out=$1
@@ -69,7 +70,7 @@ report_calling(){
 	shift
 	out_dir=$1
 
-	echo "$rscript ; $clermont_out ; $namus ; $out_dir"
+	# echo "$rscript ; $clermont_out ; $namus ; $out_dir"
 
 	modif_script=${out_dir}/${namus}.R
 	cp ${rscript} ${modif_script}
