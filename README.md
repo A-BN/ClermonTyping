@@ -5,7 +5,7 @@
 ## Contents
 
 - [Introduction](#introduction)
-- [Installation](#installation)
+- [Installation & Dependencies](#installation)
 - [Command line options](#command-line-options)
 - [Output Files](#output-files)
 
