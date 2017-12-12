@@ -51,9 +51,9 @@ function mash_analysis(){
 function blast_analysis(){
 	echo "============== Making blast db ================"
 	echo "makeblastdb -in $FASTA -input_type fasta -out $WORKING_DIR/db/$NAME -dbtype nucl"
-	${MY_PATH}/bin/makeblastdb -in $FASTA -input_type fasta -out $WORKING_DIR/db/$FASTA_NAME -dbtype nucl
+	makeblastdb -in $FASTA -input_type fasta -out $WORKING_DIR/db/$FASTA_NAME -dbtype nucl
 	echo "============== Running blast =================="
-	${MY_PATH}/bin/blastn -query $PRIMERS -perc_identity $PERC_IDENTITY -task $BLAST_TASK -outfmt 5 -db $WORKING_DIR/db/$FASTA_NAME -out $WORKING_DIR/$FASTA_NAME.xml
+	blastn -query $PRIMERS -perc_identity $PERC_IDENTITY -task $BLAST_TASK -outfmt 5 -db $WORKING_DIR/db/$FASTA_NAME -out $WORKING_DIR/$FASTA_NAME.xml
 }
 
 function report_calling(){
