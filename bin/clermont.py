@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """
-Current Version - 0.5.1: Sept. 2017
+Current Version - 1.0.0: Dec. 2017
+		1.0.0:
+			- Final version for github
+			- Removing option -c
 		0.5.0:
 			- Update outputs
 		0.4.0:
@@ -59,8 +62,6 @@ def ArgumentsParser():
                       help = 'The maximum number of mismatches in hits. Default = 2')
   parser.add_argument('-l', '--length', type = int, required = False,
                       help = 'The length of the crucial hybridation fragment (seed). Default = 5.')
-  parser.add_argument('-c', '--cutoff', type = int, required = False,
-                      help = 'How many mismatch allowed in seed. Must be < length of seed. Default = 0.')
   parser.add_argument('-s', '--min_size', type = int, required = False,
                       help = 'Minimum size for a hit to be counted. This avoid finding primers in smalls contigs.')
   logger_args = parser.add_argument_group('Logger configuration')
@@ -340,13 +341,6 @@ if __name__ == "__main__":
         seed_length = args.length
     #Default number of mismatches allowed in the seed.
     cutoff = 0
-    if args.cutoff:
-        if args.cutoff > seed_length:
-            logger.error("WARNING! Number of mismatches allowed in the seed is too high! Continue with max number of mismatches allowed: "+str(seed_length))
-            logger.error("Verification of seed is now DISABLED. Try with a smaller -c option.")
-            cutoff = seed_length
-        else:
-            cutoff = args.cutoff
     #Default minimum contig size = 0 (disabled)
     min_contig_size = 0
     if args.min_size:
