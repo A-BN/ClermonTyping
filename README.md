@@ -20,7 +20,13 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 * [NCBI BLAST+ blastn](https://www.ncbi.nlm.nih.gov/books/NBK279671/) 
 * [Biopython](http://biopython.org/) under [python3](https://www.python.org/downloads/)
-* [R](https://cran.r-project.org/) version 3.4.2 or higher
+* [pandoc](https://pandoc.org/) 
+* [R](https://cran.r-project.org/) version 3.4.2 or higher with the following packages installed:
+	* readr
+	* dplyr
+	* tidyr
+	* stringr
+	* knitr
 
 ### Instalation
 
