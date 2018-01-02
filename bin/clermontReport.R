@@ -44,8 +44,14 @@ mash_results <-
   lapply(X = clermonT$mash_file,
                        FUN = function(x) read_delim(x,
                                                     "\t", escape_double = FALSE,
-                                                    trim_ws = TRUE,
-                                                    col_names = c("score", "kmer", "med_mul", "pval", "strain", "empty")))
+                                                    trim_ws = TRUE, 
+                                                    col_names = c("score", "kmer", "med_mul", "pval", "strain", "empty"),
+                                                    col_types = cols(score = col_double(), 
+                                                                  kmer = col_character(), 
+                                                                  med_mul = col_integer(), 
+                                                                  pval = col_double(), 
+                                                                  strain = col_character(), 
+                                                                  empty = col_character())))
 
 # this dplyr transformation will try to give a warning if the mash result is unclear 
 # (i.e multiple results w/ score > 0.90 non concordant on the group)
