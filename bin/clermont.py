@@ -277,7 +277,7 @@ def find_phylo_group(markers):
                     if "trpA" not in markers and "trpBA" not in markers and "trpBA2" not in markers:
                         clades.append("Warning-no trpA found")
                     if "aesI" in markers:
-                        clades.append("Fergusonii")
+                        clades.append("fergusonii")
                     if "aesII" in markers:
                         clades.append("Clade II")
                     if "chuIII" in markers:
@@ -289,7 +289,7 @@ def find_phylo_group(markers):
                     if clades:
                         return(' '.join(clades))
                     else:
-                        return("Fergusonii")
+                        return("fergusonii")
 
 def find_clade_group(markers):
     all_primers = Primers()
