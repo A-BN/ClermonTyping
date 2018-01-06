@@ -66,7 +66,10 @@ mash_group <-
       slice(1) %>%
       select(mash_group)
   })
-mash_group <- as.character(unlist(mash_group))
+
+mash_group <- as.character(paste0("",unlist(mash_group)))
+mash_group[mash_group == ""] <- "Unknown"
+
 clermonT_2 <-
   clermonT %>%
     mutate(internal = NULL)%>%
@@ -93,6 +96,16 @@ for(i in 1:nrow(clermonT_2)){
     messaga <- 
       c(messaga, paste0("Warning in : ", curr_file,
         "\tA star next to the mash_group results indicates\nthat the input sequence might be a mix between multiple *E. coli* genomes\n(i.e a metagenome or a recombined genome)."))
-    }
+  }
+  if(grepl(pattern = "Unknown", x = curr_phylo)){
+    messaga <- 
+      c(messaga, paste0("Warning in : ", curr_file,
+                        "\tA You might have discovered a new quadruplex genotype! To be on the safe side you should consider doublechecking your data."))
+  }
+  if(grepl(pattern = "Unknown", x = curr_mash)){
+    messaga <- 
+      c(messaga, paste0("Warning in : ", curr_file,
+                        "\tA There was no close match in our mash database. This should not happen with a complete E. coli genome."))
+  }
 }
 cat(x = messaga, sep = "\n")
