@@ -167,8 +167,8 @@ def pcr_parser_groups(quadruplex):
                     continue
                 insert_size = math.fabs(int(position_f)-int(position_r))
                 #Size of insert must be near the given insert size +/- 20% bp
-                minimum_size = primers[primer]-(primers[primer]*20/100)
-                maximum_size = primers[primer]+(primers[primer]*20/100)
+                minimum_size = primers[primer]-(primers[primer]*10/100)
+                maximum_size = primers[primer]+(primers[primer]*10/100)
                 if (insert_size >= minimum_size) and (insert_size <= maximum_size):
                     #Insert size is correct but do the frame is correct?
                     #frame must be one at -1 and one at 1
