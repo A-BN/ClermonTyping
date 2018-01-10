@@ -134,7 +134,7 @@ for FASTA in "${ARRAY_FASTA[@]}"; do
 		BASE_NAME_FASTA=`basename $FASTA`
 		FASTA_NAME=${BASE_NAME_FASTA%£*}
 		echo "Analysis of ${FASTA_NAME}"
-		mv $FASTA $WORKING_DIR/${FASTA_NAME}
+		cp $FASTA $WORKING_DIR/${FASTA_NAME}
 		FASTA=$WORKING_DIR/$FASTA_NAME
 		##### Step 1: MASH analysis #####
 		# Generate ${FASTA_NAME}_mash_screen.tab
