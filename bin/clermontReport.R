@@ -77,7 +77,8 @@ clermonT_2 <-
            quadruplex = str_replace_all(string = quadruplex, pattern = ",", replacement = "   ")) %>%
     mutate(supp = str_replace_all(string = supp, pattern = "[\\[\\]']", replacement = "")) %>%
     select(-mash_file)%>%
-    cbind(mash_group)
+    cbind(mash_group) %>%
+    mutate(mash_group = as.character(mash_group))
 
 kable(clermonT_2)
 
