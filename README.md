@@ -40,7 +40,7 @@ Script usage :
 	-h					    : print this message and exit
 	--fasta					: fasta contigs name(s). Can be separated by an At sign (@) value
 	--name					: name for this analysis (optional)
-	--treshold			: Option for ClermontTyping, do not use contigs under this size (optional)
+	--threshold			: Option for ClermontTyping, do not use contigs under this size (optional)
 ```
 
 This script will execute the pipeline blast, mash and python to give the full output (html file). If you need to analyse several fasta files you can list them with a @ sign:

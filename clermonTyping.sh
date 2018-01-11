@@ -15,8 +15,8 @@
 # Contact: johann.beghain@inserm.fr
 
 MY_PATH="`dirname \"$0\"`"
-#Default treshold = 0 (disabled)
-TRESHOLD=0
+#Default threshold = 0 (disabled)
+THRESHOLD=0
 #Default name = date
 DATE=$( date "+%F_%H%M%S")
 NAME=analysis_$DATE
@@ -34,7 +34,7 @@ function usage(){
 	printf "\t-h					: print this message and exit\n"
 	printf "\t--fasta					: fasta contigs name(s). Can be separated by an arobase (@) value\n"
 	printf "\t--name					: name for this analysis (optional)\n"
-	printf "\t--treshold				: Option for ClermontTyping, do not use contigs under this size (optional)\n"
+	printf "\t--threshold				: Option for ClermontTyping, do not use contigs under this size (optional)\n"
 }
 
 function mash_analysis(){
@@ -80,7 +80,7 @@ function report_calling(){
 	Rscript --slave -e "library(markdown); sink('/dev/null');rmarkdown::render('${modif_script}')"
 }
 
-OPTS=$( getopt -o h -l fasta,treshold,name: -- "$@" )
+OPTS=$( getopt -o h -l fasta,threshold,name: -- "$@" )
 if [ $? != 0 ]
 then
     exit 1
@@ -101,8 +101,8 @@ do
 		NAME="$2";
         shift
         ;;
-        --treshold) 
-		TRESHOLD="$2";
+        --threshold) 
+		THRESHOLD="$2";
         shift
         ;;
         --) shift; break;;
@@ -117,7 +117,7 @@ then
 	exit 1
 fi
 
-echo "You asked for a Clermont typing analysis named $NAME of phylogroups on $FASTAS with a treshold under $TRESHOLD."
+echo "You asked for a Clermont typing analysis named $NAME of phylogroups on $FASTAS with a threshold under $THRESHOLD."
 
 if [ ! -d $NAME ]
 then
@@ -144,7 +144,7 @@ for FASTA in "${ARRAY_FASTA[@]}"; do
 		blast_analysis
 		##### Step 3: ClermonTyping #####
 		echo "============== ClermonTyping =================="
-		results=`${MY_PATH}/bin/clermont.py -x ${WORKING_DIR}/${FASTA_NAME}.xml -s $TRESHOLD`
+		results=`${MY_PATH}/bin/clermont.py -x ${WORKING_DIR}/${FASTA_NAME}.xml -s $THRESHOLD`
 		echo "$FASTA_NAME	$results	${FASTA_NAME}_mash_screen.tab" >> $WORKING_DIR/${NAME}_phylogroups.txt
 	else
 		echo "$FASTA doesn't exists"
