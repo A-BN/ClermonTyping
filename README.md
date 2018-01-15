@@ -43,10 +43,12 @@ Script usage :
 	--threshold			: Option for ClermontTyping, do not use contigs under this size (optional)
 ```
 
-This script will execute the pipeline blast, mash and python to give the full output (html file). If you need to analyse several fasta files you can list them with a @ sign:
+This script will execute the pipeline blast, mash and python to give the full output (html file). If you need to analyse several fasta files you can list them with a @ sign (absolute path required):
 ```
 % clermonTyping.sh --fasta my_ecoli1.fasta@my_ecoli2.fasta@my_ecoli3.fasta
 ```
+**/!\ Important: you have to specify an absolute path**
+
 
 ### Clermont Typing without mash and R
 
