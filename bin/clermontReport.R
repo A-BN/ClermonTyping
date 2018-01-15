@@ -60,11 +60,13 @@ mash_group <-
     mash_df %>%
       filter(score > 0.95) %>%
       arrange(desc(score)) %>%
-      mutate(mash_raw = str_replace(string = strain, pattern = ".*_(.*).fasta", replacement = "\\1")) %>%
+      mutate(mash_short = str_replace(string = strain, pattern = ".*_(.*)_.*.fasta", replacement = "\\1")) %>%
+      mutate(mash_full = str_replace(string = strain, pattern = ".*_(.*_.*).fasta", replacement = "\\1")) %>%
+      mutate(mash_full = str_replace(string = mash_full,pattern = "_", replacement = "")) %>%
       rowwise()%>%
-      mutate(mash_group = ifelse(test = length(unique(.$mash_raw)) == 1, yes = mash_raw, no = paste0(mash_raw, "*"))) %>%
+      mutate(mash_short = ifelse(test = length(unique(.$mash_short)) == 1, yes = mash_short, no = paste0(mash_short, "*"))) %>%
       slice(1) %>%
-      select(mash_group)
+      select(mash_short)
   })
 
 mash_group <- as.character(paste0("",unlist(mash_group)))
