@@ -214,13 +214,13 @@ def find_phylo_group(markers):
                     return("Unknown")
                 else:
                     if "aesI" in markers:
-                        return("clade I")
+                        return("cladeI")
                     else:
                         #Double check for clade E
                         if "ArpAgpE" in markers:
                             return("E")
                         else:
-                            return("E or clade I")
+                            return("E or cladeI")
             else:
                 if "TspE4.C2" in markers:
                     if "ArpAgpE" in markers:
@@ -264,9 +264,9 @@ def find_phylo_group(markers):
                     return("Unknown")
                 else:
                     if "aesI" in markers:
-                        return("Clade I")
+                        return("cladeI")
                     elif "aesII" in markers:
-                        return("Clade II")
+                        return("cladeII")
                     else:
                         return("Unknown")
             else:
@@ -279,13 +279,13 @@ def find_phylo_group(markers):
                     if "aesI" in markers:
                         clades.append("fergusonii")
                     if "aesII" in markers:
-                        clades.append("Clade II")
+                        clades.append("cladeII")
                     if "chuIII" in markers:
-                        clades.append("Clade III")
+                        clades.append("cladeIII")
                     if "chuIV" in markers:
-                        clades.append("Clade IV")
+                        clades.append("cladeIV")
                     if "chuV" in markers:
-                        clades.append("Clade V")
+                        clades.append("cladeV")
                     if clades:
                         return(' '.join(clades))
                     else:
@@ -296,15 +296,15 @@ def find_clade_group(markers):
     primers = all_primers.names
     clades = []
     if "aesI" in markers:
-        clades.append("Clade I")
+        clades.append("cladeI")
     if "aesII" in markers:
-        clades.append("Clade II")
+        clades.append("cladeII")
     if "chuIII" in markers:
-        clades.append("Clade III")
+        clades.append("cladeIII")
     if "chuIV" in markers:
-        clades.append("Clade IV")
+        clades.append("cladeIV")
     if "chuV" in markers:
-        clades.append("Clade V")
+        clades.append("cladeV")
     return(clades)
 
 ###############################################################################
