@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """
-Current Version - 1.0.0: Dec. 2017
+Current Version - 1.1.0: Janv. 2018
+		1.1.0:
+			- Adding disambiguation in profile +-+- with clade I
 		1.0.0:
 			- Final version for github
 			- Removing option -c
@@ -237,10 +239,13 @@ def find_phylo_group(markers):
                 if "TspE4.C2" in markers:
                     return("Unknown")
                 else:
-                    if "trpAgpC" in markers:
-                        return("C")
+                    if "aesI" in markers:
+                        return("cladeI")
                     else:
-                        return("A")
+                        if "trpAgpC" in markers:
+                            return("C")
+                        else:
+                            return("A")
             else:
                 if "TspE4.C2" in markers:
                     return("B1")
