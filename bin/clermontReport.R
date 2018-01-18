@@ -93,17 +93,17 @@ for(i in 1:nrow(clermonT_2)){
   if(!(curr_phylo == curr_mash_noS)){
     messaga <-
       c(messaga,
-        paste0("Warning in : ", curr_file,".\tThe Clermont phylogroup doesn't match the mash closest neighbor's group !"))
+        paste0("Warning in : ", curr_file,".\tThe Clermont phylogroup doesn't match the mash closest neighbor's group! This could indicate a mutation affecting the binding of a primer"))
   }
   if(grepl(pattern = "\\*", x = curr_mash)){
     messaga <- 
       c(messaga, paste0("Warning in : ", curr_file,
-        "\tA star next to the mash_group results indicates\nthat the input sequence might be a mix between multiple *E. coli* genomes\n(i.e a metagenome or a recombined genome)."))
+        "\tThe input sequence might be a mix between multiple *E. coli* genomes\n(i.e a metagenome or a recombined genome)."))
   }
   if(grepl(pattern = "Unknown", x = curr_phylo)){
     messaga <- 
       c(messaga, paste0("Warning in : ", curr_file,
-                        "\tA You might have discovered a new quadruplex genotype! To be on the safe side you should consider doublechecking your data."))
+                        "\tA You might have discovered a new quadruplex genotype (or simply a mutation affecting the binding of a primer)! To be on the safe side you should consider doublechecking your data."))
   }
   if(grepl(pattern = "Unknown", x = curr_mash)){
     messaga <- 
