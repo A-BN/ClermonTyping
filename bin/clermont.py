@@ -49,7 +49,7 @@ from Bio.Blast import NCBIXML
 #Definition of Primers names and size of PCR product (bp)
 class Primers:
     def __init__(self):
-        self.names = {"trpA": 783, "trpBA": 489, "trpBA2": 146, "chuAalbertii": 122, "chuA": 288, "yjaA": 211, "TspE4.C2": 152, "arpA": 400, "ArpAgpE": 301, "trpAgpC": 219, "aesI": 315, "aesII": 125, "chuIII": 183, "chuIV": 461, "chuV": 600}
+        self.names = {"trpA": 783, "trpBA": 489, "chuAalbertii": 122, "chuA": 288, "yjaA": 211, "TspE4.C2": 152, "arpA": 400, "ArpAgpE": 301, "trpAgpC": 219, "aesI": 315, "aesII": 125, "chuIII": 183, "chuIV": 461, "chuV": 600}
 
 ###############################################################################
 #############                FUNCTIONS                            #############
@@ -279,7 +279,7 @@ def find_phylo_group(markers):
                     return("Unknown")
                 else:
                     clades = []
-                    if "trpA" not in markers and "trpBA" not in markers and "trpBA2" not in markers:
+                    if "trpA" not in markers and "trpBA" not in markers:
                         clades.append("Warning-no trpA found")
                     if "aesI" in markers:
                         clades.append("fergusonii")
