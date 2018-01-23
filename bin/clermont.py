@@ -266,7 +266,7 @@ def find_phylo_group(markers):
         else:
             if "yjaA" in markers:
                 if "TspE4.C2" in markers:
-                    return("Unknown")
+                    return("B2")
                 else:
                     if "aesI" in markers:
                         return("cladeI")
@@ -276,7 +276,7 @@ def find_phylo_group(markers):
                         return("Unknown")
             else:
                 if "TspE4.C2" in markers:
-                    return("Unknown")
+                    return("B1")
                 else:
                     clades = []
                     if "trpA" not in markers and "trpBA" not in markers:
