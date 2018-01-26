@@ -1,6 +1,6 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) [](#lang-au)
 
-# ClermonTyping : Phylogroup typing of *Escherichia coli* contigs fasta files
+# ClermonTyping : Phylogroup typing of *Escherichia* contigs fasta files
 
 ## Contents
 
