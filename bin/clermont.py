@@ -279,8 +279,6 @@ def find_phylo_group(markers):
                     return("B1")
                 else:
                     clades = []
-                    if "trpA" not in markers and "trpBA" not in markers:
-                        clades.append("Warning-no trpA found")
                     if "aesI" in markers:
                         clades.append("fergusonii")
                     if "aesII" in markers:
@@ -294,6 +292,8 @@ def find_phylo_group(markers):
                     if clades:
                         return(' '.join(clades))
                     else:
+                        if "trpA" not in markers and "trpBA" not in markers:
+                            return("Non Escherichia")
                         return("fergusonii")
 
 def find_clade_group(markers):
