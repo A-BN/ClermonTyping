@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 """
-Current Version - 1.1.0: Janv. 2018
-		1.1.0:
+Current Version - 1.2.0: Fév. 2018
+		1.2.0:
+            - Changing conclusion about trpA missing
+            - Profile --+- is now fergusonii
+        1.1.0:
 			- Adding disambiguation in profile +-+- with clade I
 		1.0.0:
 			- Final version for github
@@ -273,7 +276,7 @@ def find_phylo_group(markers):
                     elif "aesII" in markers:
                         return("cladeII")
                     else:
-                        return("Unknown")
+                        return("fergusonii")
             else:
                 if "TspE4.C2" in markers:
                     return("B1")
