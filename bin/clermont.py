@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 """
-Current Version - 1.2.0: Fév. 2018
-		1.2.0:
+Current Version - 1.3.0: 13 Fév. 2018
+		1.3.0:
+            - Adding an essential primer for fergusonii amplification
+            - Changine behavior for other fergusonii to Unkown
+        1.2.0:
             - Changing conclusion about trpA missing
             - Profile --+- is now fergusonii
         1.1.0:
@@ -52,7 +55,7 @@ from Bio.Blast import NCBIXML
 #Definition of Primers names and size of PCR product (bp)
 class Primers:
     def __init__(self):
-        self.names = {"trpA": 783, "trpBA": 489, "chuAalbertii": 122, "chuA": 288, "yjaA": 211, "TspE4.C2": 152, "arpA": 400, "ArpAgpE": 301, "trpAgpC": 219, "aesI": 315, "aesII": 125, "chuIII": 183, "chuIV": 461, "chuV": 600}
+        self.names = {"trpA": 783, "trpBA": 489, "chuAalbertii": 136, "citPferg": 300, "chuA": 288, "yjaA": 211, "TspE4.C2": 152, "arpA": 400, "ArpAgpE": 301, "trpAgpC": 219, "aesI": 315, "aesII": 125, "chuIII": 183, "chuIV": 461, "chuV": 600}
 
 ###############################################################################
 #############                FUNCTIONS                            #############
@@ -212,6 +215,8 @@ def find_phylo_group(markers):
     #Internal control
     if "chuAalbertii" in markers:
         return("albertii")
+    if "citPferg" in markers:
+        return("Fergusonii")
     if "arpA" in markers:
         if "chuA" in markers:
             if "yjaA" in markers:
@@ -276,14 +281,12 @@ def find_phylo_group(markers):
                     elif "aesII" in markers:
                         return("cladeII")
                     else:
-                        return("fergusonii")
+                        return("Unknown")
             else:
                 if "TspE4.C2" in markers:
                     return("B1")
                 else:
                     clades = []
-                    if "aesI" in markers:
-                        clades.append("fergusonii")
                     if "aesII" in markers:
                         clades.append("cladeII")
                     if "chuIII" in markers:
@@ -297,7 +300,7 @@ def find_phylo_group(markers):
                     else:
                         if "trpA" not in markers and "trpBA" not in markers:
                             return("Non Escherichia")
-                        return("fergusonii")
+                        return("Unknown")
 
 def find_clade_group(markers):
     all_primers = Primers()
