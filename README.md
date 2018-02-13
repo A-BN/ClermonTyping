@@ -1,6 +1,6 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) [](#lang-au)
 
-# ClermonTyping : Phylogroup typing of *Escherichia* contigs fasta files
+# ClermonTyping: An in silico method for Escherichia albertii, fergusonii and clade assignation and Escherichia coli sensu stricto phylotyping
 
 ## Contents
 
@@ -11,8 +11,7 @@
 
 ## Introduction
 
-Clermont PCR method In-Silico. See abstract.
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+The genus Escherichia is composed of Escherichia albertii, E. fergusonii, five cryptic Escherichia clades and E. coli sensu stricto. Furthermore, the E. coli species can be divided in 7 main phylogroups termed A, B1, B2, C, D, E and F. As specific lifestyles and/or hosts can be attributed to these species/phylogroups, their identification is meaningful for epidemiologic studies. Classical phenotypic tests fail to identify non-stricto sensu E. coli as well as phylogroups. Clermont and colleagues have developed over the years PCR assays that allow the identification of most of these species/phylogroups; the triplex/quadruplex PCR for E. coli phylogroup determination being the most popular. With the growing availability of whole genome sequences, we have developed the ClermonTyping method and it's associated web-interface, the ClermonTyper, that allows to assign a given strain sequence to E. albertii, E. fergusonii, Escherichia clade I to V, E. coli sensu stricto as well as to the 7 main E. coli phylogroups. The ClermonTyping is based on the concept of the in vitro PCR assays and keeps in mind the principles of ease and speed that prevailed during the development of the in vitro assays. This in silico approach is in concordance in 99.4 % with the in vitro PCR assays and in 98.8 % with the Mash genome-clustering tool. The very few discrepancies result from various errors occurring during the sequencing process and from horizontal gene transfers or single nucleotide polymorphisms in the primers. We propose the ClermonTyper as freely available to the scientific community.
 
 ## Installation & Dependencies
 
@@ -47,7 +46,6 @@ This script will execute the pipeline blast, mash and python to give the full ou
 ```
 % clermonTyping.sh --fasta my_ecoli1.fasta@my_ecoli2.fasta@my_ecoli3.fasta
 ```
-**/!\ Important: you have to specify an absolute path**
 
 
 ### Clermont Typing without mash and R
