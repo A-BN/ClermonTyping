@@ -201,7 +201,7 @@ def pcr_parser_groups(quadruplex):
             quadruplex.append('-')
     #return the specific primers (grp E or C disambiguity)
     specific = []
-    specific_names = ['ArpAgpE', 'trpAgpC']
+    specific_names = ["chuAalbertii", "citPferg", "aesI", "aesII", "chuIII", "chuIV", "chuV", 'ArpAgpE', 'trpAgpC']
     for name in specific_names:
         if name in pcr_products:
             specific.append(name)
@@ -216,7 +216,7 @@ def find_phylo_group(markers):
     if "chuAalbertii" in markers:
         return("albertii")
     if "citPferg" in markers:
-        return("Fergusonii")
+        return("fergusonii")
     if "arpA" in markers:
         if "chuA" in markers:
             if "yjaA" in markers:
@@ -302,22 +302,6 @@ def find_phylo_group(markers):
                             return("Non Escherichia")
                         return("Unknown")
 
-def find_clade_group(markers):
-    all_primers = Primers()
-    primers = all_primers.names
-    clades = []
-    if "aesI" in markers:
-        clades.append("cladeI")
-    if "aesII" in markers:
-        clades.append("cladeII")
-    if "chuIII" in markers:
-        clades.append("cladeIII")
-    if "chuIV" in markers:
-        clades.append("cladeIV")
-    if "chuV" in markers:
-        clades.append("cladeV")
-    return(clades)
-
 ###############################################################################
 #############                MAIN                                 #############
 ###############################################################################
@@ -372,6 +356,3 @@ if __name__ == "__main__":
     print(specific, end="\t")
     phylo_group = find_phylo_group(pcr_products)
     print(phylo_group)
-    #Find the cryptic clades (DEPRECATED)
-    #clade_group = find_clade_group(pcr_products)
-    #print(clade_group)
