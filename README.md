@@ -1,6 +1,6 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) [](#lang-au)
 
-# ClermonTyping: An in silico method for Escherichia albertii, fergusonii and clade assignation and Escherichia coli sensu stricto phylotyping
+# ClermonTyping: An *in silico* method for *Escherichia albertii*, *E. fergusonii* and *E.* clade assignation and *E. coli sensu stricto* phylotyping
 
 ## Contents
 
@@ -37,7 +37,7 @@ The genus Escherichia is composed of Escherichia albertii, E. fergusonii, five c
 % clermonTyping.sh
 Script usage :
 	-h					    : print this message and exit
-	--fasta					: fasta contigs name(s). Can be separated by an At sign (@) value
+	--fasta					: fasta contigs file(s). If multiple files, they must be separated by an arobase (@) value
 	--name					: name for this analysis (optional)
 	--threshold			: Option for ClermontTyping, do not use contigs under this size (optional)
 ```

@@ -8,9 +8,9 @@
 # 2] Make a blast db
 # 3] Launch blast on a primers fasta file
 # 4] Launch in silicco PCR for getting phylogroup
-# 5] Reportings tools and send e-mail to user
+# 5] Reportings tools
 #
-# Current version : 1.0.0 (Oct. 2017)
+# Current version : 1.0.0 (Feb. 2018)
 #
 # Contact: johann.beghain@inserm.fr
 
@@ -32,7 +32,7 @@ DB_MASH="${MY_PATH}/data/mash/mash_reference.msh"
 function usage(){
 	printf "Script usage :\n"
 	printf "\t-h					: print this message and exit\n"
-	printf "\t--fasta					: fasta contigs name(s). Can be separated by an arobase (@) value\n"
+	printf "\t--fasta					: fasta contigs file(s). If multiple files, they must be separated by an arobase (@) value\n"
 	printf "\t--name					: name for this analysis (optional)\n"
 	printf "\t--threshold				: Option for ClermontTyping, do not use contigs under this size (optional)\n"
 }
@@ -40,12 +40,6 @@ function usage(){
 function mash_analysis(){
 	echo "============== Running mash ================"
 	${MY_PATH}/bin/mash screen -w $DB_MASH $FASTA >$WORKING_DIR/${FASTA_NAME}_mash_screen.tab
-	#Old mash analysis
-	#mash sketch -p 3 -k 32 -s 5000 -o mash_strain $FASTA
-	#mash paste mash_matrix.msh $DB_MASH mash_strain.msh
-	#mash dist -t mash_matrix.msh mash_matrix.msh >mash_matrix.txt
-	#result=`./mash_get_phylogroup.py --genome $file --matrix mash_matrix.txt --annotation $ANNOTATION_FILE`
-	#echo "$NAME	$result"
 }
 
 function blast_analysis(){
