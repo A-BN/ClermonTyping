@@ -53,20 +53,24 @@ mash_results <-
                                                                   strain = col_character(), 
                                                                   empty = col_character())))
 
-# this dplyr transformation will try to give a warning if the mash result is unclear 
+# this dplyr transformation will output "unknown" if the mash result is unclear 
 # (i.e multiple results w/ score > 0.90 non concordant on the group)
+mash_threshold <- 0.95
 mash_group <-
   lapply(X = mash_results, FUN = function(mash_df){
-    mash_df %>%
-      filter(score > 0.95) %>%
-      arrange(desc(score)) %>%
-      mutate(mash_short = str_replace(string = strain, pattern = ".*_(.*)_.*.fasta", replacement = "\\1")) %>%
-      mutate(mash_full = str_replace(string = strain, pattern = ".*_(.*_.*).fasta", replacement = "\\1")) %>%
-      mutate(mash_full = str_replace(string = mash_full,pattern = "_", replacement = "")) %>%
-      rowwise()%>%
-      mutate(mash_short = ifelse(test = length(unique(.$mash_short)) == 1, yes = mash_short, no = paste0(mash_short, "*"))) %>%
-      slice(1) %>%
-      select(mash_short)
+    if(nrow(mash_df) != 0){
+      mash_df %>%
+        filter(score > mash_threshold) %>%
+        arrange(desc(score)) %>%
+        mutate(mash_short = str_replace(string = strain, pattern = ".*_(.*)_.*.fasta", replacement = "\\1")) %>%
+        mutate(mash_full = str_replace(string = strain, pattern = ".*_(.*_.*).fasta", replacement = "\\1")) %>%
+        mutate(mash_full = str_replace(string = mash_full,pattern = "_", replacement = "")) %>%
+        rowwise()%>%
+        mutate(mash_short = ifelse(test = length(unique(.$mash_short)) == 1, yes = mash_short, no = paste0(mash_short, "*"))) %>%
+        slice(1) %>%
+        select(mash_short)
+    } else
+      mash_df <- "NA"
   })
 
 mash_group <- as.character(paste0("",unlist(mash_group)))
@@ -93,7 +97,7 @@ for(i in 1:nrow(clermonT_2)){
   if(!(curr_phylo == curr_mash_noS)){
     messaga <-
       c(messaga,
-        paste0("Warning in : ", curr_file,".\tThe Clermont phylogroup doesn't match the mash closest neighbor's group! This could indicate a mutation affecting the binding of a primer"))
+        paste0("Warning in : ", curr_file,".\tThe Clermont phylogroup doesn't match the mash closest neighbor's group!\nThis could indicate a mutation affecting the binding of a primer"))
   }
   if(grepl(pattern = "\\*", x = curr_mash)){
     messaga <- 
