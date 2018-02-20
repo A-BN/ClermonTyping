@@ -52,8 +52,15 @@ function blast_analysis(){
 	echo "============== Making blast db ================"
 	echo "makeblastdb -in $FASTA -input_type fasta -out $WORKING_DIR/db/$NAME -dbtype nucl"
 	makeblastdb -in $FASTA -input_type fasta -out $WORKING_DIR/db/$FASTA_NAME -dbtype nucl
-	echo "============== Running blast =================="
-	blastn -query $PRIMERS -perc_identity $PERC_IDENTITY -task $BLAST_TASK -word_size 6 -outfmt 5 -db $WORKING_DIR/db/$FASTA_NAME -out $WORKING_DIR/$FASTA_NAME.xml
+	if [ $? -eq 0 ]
+	then
+        echo "============== Running blast =================="
+        blastn -query $PRIMERS -perc_identity $PERC_IDENTITY -task $BLAST_TASK -word_size 6 -outfmt 5 -db $WORKING_DIR/db/$FASTA_NAME -out $WORKING_DIR/$FASTA_NAME.xml
+	else
+        echo "Error detected! Stopping pipeline..."
+        error=1
+	fi
+
 }
 
 function report_calling(){
@@ -142,10 +149,15 @@ for FASTA in "${ARRAY_FASTA[@]}"; do
 		##### Step 2: Blast #############
 		# Generate ${FASTA_NAME}.xml
 		blast_analysis
-		##### Step 3: ClermonTyping #####
-		echo "============== ClermonTyping =================="
-		results=`${MY_PATH}/bin/clermont.py -x ${WORKING_DIR}/${FASTA_NAME}.xml -s $THRESHOLD`
-		echo "$FASTA_NAME	$results	${FASTA_NAME}_mash_screen.tab" >> $WORKING_DIR/${NAME}_phylogroups.txt
+        if [ $error -gt 0 ]
+        then
+            echo "$FASTA_NAME				\"NA\"	${FASTA_NAME}_mash_screen.tab" >> $WORKING_DIR/${NAME}_phylogroups.txt
+        else
+            ##### Step 3: ClermonTyping #####
+            echo "============== ClermonTyping =================="
+            results=`${MY_PATH}/bin/clermont.py -x ${WORKING_DIR}/${FASTA_NAME}.xml -s $THRESHOLD`
+            echo "$FASTA_NAME	$results	${FASTA_NAME}_mash_screen.tab" >> $WORKING_DIR/${NAME}_phylogroups.txt
+        fi
 	else
 		echo "$FASTA doesn't exists"
 	fi
