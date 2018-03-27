@@ -50,6 +50,7 @@ function blast_analysis(){
 	then
         echo "============== Running blast =================="
         blastn -query $PRIMERS -perc_identity $PERC_IDENTITY -task $BLAST_TASK -word_size 6 -outfmt 5 -db $WORKING_DIR/db/$FASTA_NAME -out $WORKING_DIR/$FASTA_NAME.xml
+        error=0
 	else
         echo "Error detected! Stopping pipeline..."
         error=1
