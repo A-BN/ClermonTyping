@@ -1,6 +1,6 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) [](#lang-au)
 
-# ClermonTyping: An *in silico* method for *Escherichia albertii*, *E. fergusonii* and *E.* clade assignation and *E. coli sensu stricto* phylotyping
+# ClermonTyping: an easy-to-use and accurate *in silico* method for *Escherichia* genus strain phylotyping
 
 ## Contents
 
@@ -11,7 +11,21 @@
 
 ## Introduction
 
-The genus Escherichia is composed of Escherichia albertii, E. fergusonii, five cryptic Escherichia clades and E. coli sensu stricto. Furthermore, the E. coli species can be divided in 7 main phylogroups termed A, B1, B2, C, D, E and F. As specific lifestyles and/or hosts can be attributed to these species/phylogroups, their identification is meaningful for epidemiologic studies. Classical phenotypic tests fail to identify non-stricto sensu E. coli as well as phylogroups. Clermont and colleagues have developed over the years PCR assays that allow the identification of most of these species/phylogroups; the triplex/quadruplex PCR for E. coli phylogroup determination being the most popular. With the growing availability of whole genome sequences, we have developed the ClermonTyping method and it's associated web-interface, the ClermonTyper, that allows to assign a given strain sequence to E. albertii, E. fergusonii, Escherichia clade I to V, E. coli sensu stricto as well as to the 7 main E. coli phylogroups. The ClermonTyping is based on the concept of the in vitro PCR assays and keeps in mind the principles of ease and speed that prevailed during the development of the in vitro assays. This in silico approach is in concordance in 99.4 % with the in vitro PCR assays and in 98.8 % with the Mash genome-clustering tool. The very few discrepancies result from various errors occurring during the sequencing process and from horizontal gene transfers or single nucleotide polymorphisms in the primers. We propose the ClermonTyper as freely available to the scientific community.
+The genus Escherichia is composed of Escherichia albertii, E. fergusonii, five cryptic Escherichia clades and E. coli sensu stricto.
+Furthermore, the E. coli species can be divided into seven main phylogroups termed A, B1, B2, C, D, E and F. As specific
+lifestyles and/or hosts can be attributed to these species/phylogroups, their identification is meaningful for epidemiological
+studies. Classical phenotypic tests fail to identify non-sensu stricto E. coli as well as phylogroups. Clermont and colleagues
+have developed PCR assays that allow the identification of most of these species/phylogroups, the triplex/quadruplex PCR
+for E. coli phylogroup determination being the most popular. With the growing availability of whole genome sequences, we
+have developed the ClermonTyping method and its associated web-interface, the ClermonTyper, that allows a given strain
+sequence to be assigned to E. albertii, E. fergusonii, Escherichia clades I–V, E. coli sensu stricto as well as to the seven main E.
+coli phylogroups. The ClermonTyping is based on the concept of in vitro PCR assays and maintains the principles of ease of
+use and speed that prevailed during the development of the in vitro assays. This in silico approach shows 99.4 % concordance
+with the in vitro PCR assays and 98.8 % with the Mash genome-clustering tool. The very few discrepancies result from
+various errors occurring mainly from horizontal gene transfers or SNPs in the primers. We propose the ClermonTyper as a
+freely available resource to the scientific community at:
+
+__http://clermontyping.iame-research.center/.__
 
 ## Installation & Dependencies
 
@@ -36,9 +50,9 @@ The genus Escherichia is composed of Escherichia albertii, E. fergusonii, five c
 ```
 % clermonTyping.sh
 Script usage :
-	-h					    : print this message and exit
-	--fasta					: fasta contigs file(s). If multiple files, they must be separated by an arobase (@) value
-	--name					: name for this analysis (optional)
+	-h				: print this message and exit
+	--fasta				: fasta contigs file(s). If multiple files, they must be separated by an arobase (@) value
+	--name				: name for this analysis (optional)
 	--threshold			: Option for ClermontTyping, do not use contigs under this size (optional)
 ```
 
@@ -108,3 +122,6 @@ ROAR344_fergusonii.fasta	['trpA', 'trpBA', 'aesI']	['-', '-', '-', '-']	[]	Fergu
 * 3rd column : In the quadruplex column you will find a representation of presence(+)/absence(-) for the 4 genes described in [Clermont O, Christenson JK, Denamur E, Gordon DM. The Clermont Escherichia coli phylo-typing method revisited: improvement of specificity and detection of new phylo-groups](https://www.ncbi.nlm.nih.gov/pubmed/23757131). Respectively, arpA, chuA, yjaA and TspE4.C2 .
 * 4th column : When the quadruplex PCR give an ambiguity, this column show the alleles specific for groups C and E.
 * 5th column : final conclusion about phylogroup.
+
+## Citing
+The reference and URL to the paper will be added soon.
