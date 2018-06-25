@@ -127,5 +127,5 @@ ROAR344_fergusonii.fasta	['trpA', 'trpBA', 'aesI']	['-', '-', '-', '-']	[]	Fergu
 ## Citing
 Please cite:
 
-Beghain, J., Bridier-Nahmias, A., Le Nagard, H., Denamur, E. & Clermont, O. ClermonTyping: an easy-to-use and accurate in silico method for Escherichia genus strain phylotyping. Microbial Genomics (2018). doi:10.1099/mgen.0.000192
+[Beghain, J., Bridier-Nahmias, A., Le Nagard, H., Denamur, E. & Clermont, O. ClermonTyping: an easy-to-use and accurate in silico method for Escherichia genus strain phylotyping. Microbial Genomics (2018). doi:10.1099/mgen.0.000192](http://mgen.microbiologyresearch.org/content/journal/mgen/10.1099/mgen.0.000192)
 
