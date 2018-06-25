@@ -5,7 +5,7 @@
 ## Contents
 
 - [Introduction](#introduction)
-- [Dependencies & Installation](#dependencies-installation)
+- [Dependencies & Installation](#dependencies--installation)
 - [Command line options](#command-line-options)
 - [Output Files](#output-files)
 - [Citing](#citing)
@@ -28,7 +28,7 @@ freely available resource to the scientific community at:
 
 __http://clermontyping.iame-research.center/.__
 
-## Dependencies & Installation
+## Dependencies Installation
 
 ### Dependencies
 
