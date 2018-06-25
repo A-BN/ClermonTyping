@@ -5,9 +5,10 @@
 ## Contents
 
 - [Introduction](#introduction)
-- [Installation & Dependencies](#installation)
+- [Dependencies & Installation](#dependencies-installation)
 - [Command line options](#command-line-options)
 - [Output Files](#output-files)
+- [Citing](#citing)
 
 ## Introduction
 
@@ -27,7 +28,7 @@ freely available resource to the scientific community at:
 
 __http://clermontyping.iame-research.center/.__
 
-## Installation & Dependencies
+## Dependencies & Installation
 
 ### Dependencies
 
@@ -41,8 +42,8 @@ __http://clermontyping.iame-research.center/.__
 	* stringr
 	* knitr
 
-### Instalation
-
+### Installation
+...
 ## Command line options
 
 ### Main script usage
@@ -124,4 +125,7 @@ ROAR344_fergusonii.fasta	['trpA', 'trpBA', 'aesI']	['-', '-', '-', '-']	[]	Fergu
 * 5th column : final conclusion about phylogroup.
 
 ## Citing
-The reference and URL to the paper will be added soon.
+Please cite:
+
+Beghain, J., Bridier-Nahmias, A., Le Nagard, H., Denamur, E. & Clermont, O. ClermonTyping: an easy-to-use and accurate in silico method for Escherichia genus strain phylotyping. Microbial Genomics (2018). doi:10.1099/mgen.0.000192
+
