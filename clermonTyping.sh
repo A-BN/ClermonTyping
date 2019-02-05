@@ -75,7 +75,7 @@ function report_calling(){
 
 	# echo "$rscript ; $clermont_out ; $namus ; $out_dir"
 
-	Rscript --slave -e "sink('/dev/null');rmarkdown::render('${rscript}')" $clermont_out
+	Rscript --slave -e "library(markdown);sink('/dev/null');rmarkdown::render('${rscript}')" $clermont_out
 }
 
 OPTS=$( getopt -o h -l fasta,threshold,name: -- "$@" )
