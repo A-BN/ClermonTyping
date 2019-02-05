@@ -10,8 +10,9 @@
 # 4] Launch in silicco PCR for getting phylogroup
 # 5] Reportings tools
 #
-# Current version : 1.0.0 (Feb. 2018)
+# Current version : 1.4.0 (Feb. 2019)
 #
+# Contact: antoine.bridier-nahmias@inserm.fr
 # Contact: johann.beghain@inserm.fr
 
 MY_PATH="`dirname \"$0\"`"
@@ -74,12 +75,7 @@ function report_calling(){
 
 	# echo "$rscript ; $clermont_out ; $namus ; $out_dir"
 
-	modif_script=${out_dir}/${namus}.R
-	cp ${rscript} ${modif_script}
-
-	sed -i "s:TARTAMPION:$clermont_out:g" "${modif_script}"
-
-	Rscript --slave -e "library(markdown); sink('/dev/null');rmarkdown::render('${modif_script}')"
+	Rscript --slave -e "sink('/dev/null');rmarkdown::render('${rscript}')" $clermont_out
 }
 
 OPTS=$( getopt -o h -l fasta,threshold,name: -- "$@" )
