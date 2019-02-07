@@ -25,15 +25,8 @@ clermonT <-
              col_types = paste0(rep("c", 6), collapse = ""), 
              trim_ws = TRUE, 
              quoted_na = FALSE)
-# clermonT <-
-#   read_delim("/home/abn/Documents/clermonTyping/Jeannot/antoine-21112017_043026_phylogroups.txt",
-#             "\t", escape_double = FALSE, col_names = c("file", "internal", "quadruplex", "supp", "phylogroup", "mash_file"),
-#              col_types = paste0(rep("c", 6), collapse = ""),
-#              trim_ws = TRUE)
-
 
 clermonT_out_dir <- dirname("TARTAMPION")
-# clermonT_out_dir <- dirname("/home/abn/Documents/clermonTyping/Jeannot/antoine-21112017_043026_phylogroups.txt")
 
 clermonT <-
   clermonT %>%

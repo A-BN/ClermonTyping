@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """
-Current Version - 1.3.0: 13 Fév. 2018
-		1.3.0:
+Current Version - 1.4.0: Fév. 2019
+        1.4.0:
+            - Adding an essential primer for G group
+        1.3.0:
             - Adding an essential primer for fergusonii amplification
             - Changine behavior for other fergusonii to Unkown
         1.2.0:
@@ -55,7 +57,7 @@ from Bio.Blast import NCBIXML
 #Definition of Primers names and size of PCR product (bp)
 class Primers:
     def __init__(self):
-        self.names = {"trpA": 783, "trpBA": 489, "chuAalbertii": 136, "citPferg": 300, "chuA": 288, "yjaA": 211, "TspE4.C2": 152, "arpA": 400, "ArpAgpE": 301, "trpAgpC": 219, "aesI": 315, "aesII": 125, "chuIII": 183, "chuIV": 461, "chuV": 600}
+        self.names = {"trpA": 783, "trpBA": 489, "chuAalbertii": 136, "citPferg": 300, "chuA": 288, "yjaA": 211, "TspE4.C2": 152, "arpA": 400, "ArpAgpE": 301, "trpAgpC": 219, "aesI": 315, "aesII": 125, "chuIII": 183, "chuIV": 461, "chuV": 600, "ybgD": 177}
 
 ###############################################################################
 #############                FUNCTIONS                            #############
@@ -268,13 +270,19 @@ def find_phylo_group(markers):
                     return("B2")
             else:
                 if "TspE4.C2" in markers:
-                    return("B2")
+                    if "ybgD" in markers:
+                        return("G")
+                    else:
+                        return("B1")
                 else:
-                    return("F")
+                    if "ybgD" in markers:
+                        return("G")
+                    else:
+                        return("F")
         else:
             if "yjaA" in markers:
                 if "TspE4.C2" in markers:
-                    return("B2")
+                
                 else:
                     if "aesI" in markers:
                         return("cladeI")

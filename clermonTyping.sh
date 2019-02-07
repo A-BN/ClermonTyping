@@ -10,9 +10,9 @@
 # 4] Launch in silicco PCR for getting phylogroup
 # 5] Reportings tools
 #
-# Current version : 1.0.0 (Feb. 2018)
+# Current version : 1.4.0 (Feb. 2019)
 #
-# Contact: johann.beghain@inserm.fr
+# Contact: antoine.bridier-nahmias@inserm.fr
 
 MY_PATH="`dirname \"$0\"`"
 #Default threshold = 0 (disabled)
@@ -71,8 +71,6 @@ function report_calling(){
 	namus=$1
 	shift
 	out_dir=$1
-
-	# echo "$rscript ; $clermont_out ; $namus ; $out_dir"
 
 	modif_script=${out_dir}/${namus}.R
 	cp ${rscript} ${modif_script}
