@@ -78,7 +78,7 @@ function report_calling(){
 
 	sed -i "s:TARTAMPION:$clermont_out:g" "${modif_script}"
 	
-	Rscript --slave -e "library(markdown);sink('/dev/null');rmarkdown::render('${rscript}')" 
+	Rscript --slave -e "library(markdown);sink('/dev/null');rmarkdown::render('${modif_script}')" 
 }
 
 OPTS=$( getopt -o h -l fasta,threshold,name: -- "$@" )
