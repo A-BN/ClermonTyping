@@ -10,8 +10,9 @@
 # 4] Launch in silicco PCR for getting phylogroup
 # 5] Reportings tools
 #
-# Current version : 1.4.0 (Feb. 2019)
-#
+# Current version : 1.4.1 (Jun. 2019)
+version="Clermont Typing  Current version : 1.4.1 (Jun. 2019)"
+
 # Contact: antoine.bridier-nahmias@inserm.fr
 
 MY_PATH="`dirname \"$0\"`"
@@ -32,6 +33,7 @@ DB_MASH="${MY_PATH}/data/mash/mash_reference.msh"
 function usage(){
 	printf "Script usage :\n"
 	printf "\t-h					: print this message and exit\n"
+	printf "\t-v					: print the version and exit\n"
 	printf "\t--fasta					: fasta contigs file(s). If multiple files, they must be separated by an arobase (@) value\n"
 	printf "\t--name					: name for this analysis (optional)\n"
 	printf "\t--threshold				: Option for ClermontTyping, do not use contigs under this size (optional)\n"
@@ -80,15 +82,21 @@ function report_calling(){
 	Rscript --slave -e "library(markdown); sink('/dev/null');rmarkdown::render('${modif_script}')"
 }
 
-OPTS=$( getopt -o h -l fasta,threshold,name: -- "$@" )
-if [ $? != 0 ]
+
+if [ $# == 0 ]
 then
-    exit 1
+	 usage
+	 exit 1
 fi
 
-while [[ $# -gt 1 ]]
+while [[ $# -gt 0 ]]
 do
     case "$1" in
+	-v)
+	echo $version
+	usage
+	exit 0
+	;;
         -h)
         usage
         exit 0
