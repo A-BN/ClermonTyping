@@ -273,7 +273,7 @@ def find_phylo_group(markers):
                     if "ybgD" in markers:
                         return("G")
                     else:
-                        return("B1")
+                        return("B2")
                 else:
                     if "ybgD" in markers:
                         return("G")
