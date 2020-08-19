@@ -10,8 +10,8 @@
 # 4] Launch in silicco PCR for getting phylogroup
 # 5] Reportings tools
 #
-# Current version : 20.03 (Mar. 2020)
-version="Clermont Typing  Current version : 20.03 (Mar. 2020)"
+# Current version : 20.08 (Aug. 2020)
+version="Clermont Typing  Current version : 20.08 (Aug. 2020)"
 
 # Contact: antoine.bridier-nahmias@inserm.fr
 
