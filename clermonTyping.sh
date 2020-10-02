@@ -183,7 +183,7 @@ then
     fi
 
     #Analysis of each fasta file
-    for FASTA in "${LIST_FILES[@]}"
+    for FASTA in ${LIST_FILES[@]}
     do
         if [ -f "$FASTA" ] && [ -n "$FASTA" ]
         then
