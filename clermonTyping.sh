@@ -154,7 +154,7 @@ then
     echo "You asked for a Clermont typing analysis named $NAME of phylogroups."
     if  [ -n "$FASTA_FILE" ] || [ -n "$FASTAS" ] 
     then
-        echo "Too much parameters. Option --fasta or --fastafile, or --summary"
+        echo "Too many parameters. Option --fasta or --fastafile, or --summary"
         usage
         exit 1
     fi
@@ -249,9 +249,9 @@ fi
 if  [ ${MINIMAL} -eq 0 ] 
 then
     report_calling "${MY_PATH}/bin/clermontReport.R" "$WORKING_DIR/${NAME}_phylogroups.txt" "$NAME" "$WORKING_DIR"
-    add_mash_group "$WORKING_DIR/${NAME}_phylogroups.txt"
+    add_mash_group "$WORKING_DIR/${NAME}_phylogroups.txt" 0.95
 else 
-    add_mash_group "$WORKING_DIR/${NAME}_phylogroups.txt"
+    add_mash_group "$WORKING_DIR/${NAME}_phylogroups.txt" 0.95
 fi
 
 echo "============== End =================="
