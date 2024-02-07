@@ -10,8 +10,8 @@
 # 4] Launch in silicco PCR for getting phylogroup
 # 5] Reportings tools
 #
-# Current version : 20.03 (Mar. 2020)
-version="Clermont Typing  Current version : 20.03 (Mar. 2020)"
+# Current version : 24.02 (Fev. 2024)
+version="Clermont Typing  Current version : 24.02 (Fev. 2024)"
 
 # Contact: antoine.bridier-nahmias@inserm.fr
 
@@ -85,6 +85,10 @@ function report_calling(){
 	Rscript --slave -e "library(markdown); sink('/dev/null');rmarkdown::render('${modif_script}')"
 }
 
+function add_mash_group() {
+    in_file=$1
+    Rscript add_mash_minimal.R ${in_file}
+}
 
 if [ $# == 0 ]
 then
@@ -156,7 +160,7 @@ then
     fi
 
 else
-    echo "You asked for a Clermont typing analysis named $NAME of phylogroups on $FASTAS with a threshold under $THRESHOLD."
+    echo "You asked for a Clermont typing analysis named $NAME of phylogroups on $FASTAS with a minimum contig size of $THRESHOLD."
 fi
 
 if [ ! -d $NAME ]
@@ -245,6 +249,9 @@ fi
 if  [ ${MINIMAL} -eq 0 ] 
 then
     report_calling "${MY_PATH}/bin/clermontReport.R" "$WORKING_DIR/${NAME}_phylogroups.txt" "$NAME" "$WORKING_DIR"
+    add_mash_group "$WORKING_DIR/${NAME}_phylogroups.txt"
+else 
+    add_mash_group "$WORKING_DIR/${NAME}_phylogroups.txt"
 fi
 
 echo "============== End =================="
