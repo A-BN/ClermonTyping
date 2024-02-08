@@ -87,7 +87,7 @@ function report_calling(){
 
 function add_mash_group() {
     in_file=$1
-    Rscript add_mash_minimal.R ${in_file}
+    Rscript "${MY_PATH}/bin/add_mash_minimal.R" ${in_file}
 }
 
 if [ $# == 0 ]
@@ -248,10 +248,10 @@ fi
 ##### Step 4: Reporting #########
 if  [ ${MINIMAL} -eq 0 ] 
 then
-    report_calling "${MY_PATH}/bin/clermontReport.R" "$WORKING_DIR/${NAME}_phylogroups.txt" "$NAME" "$WORKING_DIR"
-    add_mash_group "$WORKING_DIR/${NAME}_phylogroups.txt" 0.95
+    report_calling "${MY_PATH}/bin/clermontReport.R" "$WORKING_DIR/${NAME}_phylogroups.txt" "$NAME" "$WORKING_DIR" add_mash_group
+    add_mash_group "$WORKING_DIR/${NAME}_phylogroups.txt 0.95"
 else 
-    add_mash_group "$WORKING_DIR/${NAME}_phylogroups.txt" 0.95
+    add_mash_group "$WORKING_DIR/${NAME}_phylogroups.txt 0.95"
 fi
 
 echo "============== End =================="
