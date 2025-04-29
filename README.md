@@ -123,6 +123,8 @@ ROAR344_fergusonii.fasta	['trpA', 'trpBA', 'aesI']	['-', '-', '-', '-']	[]	Fergu
 * 3rd column : In the quadruplex column you will find a representation of presence(+)/absence(-) for the 4 genes described in [Clermont O, Christenson JK, Denamur E, Gordon DM. The Clermont Escherichia coli phylo-typing method revisited: improvement of specificity and detection of new phylo-groups](https://www.ncbi.nlm.nih.gov/pubmed/23757131). Respectively, arpA, chuA, yjaA and TspE4.C2 .
 * 4th column : When the quadruplex PCR give an ambiguity, this column show the alleles specific for groups C and E.
 * 5th column : final conclusion about phylogroup.
+* 6th column : mash group of the sample. This prediction is only informative and is not used for phylogroup assignation.
+
 
 ## Citing
 Please cite:
