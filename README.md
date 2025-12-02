@@ -74,7 +74,7 @@ You will need to format the output in XML format in order to use the clermontypi
 
 ```
 % makeblastdb -in my_fasta.fasta -input_type fasta -out my_fasta -dbtype nucl
-% blastn -query ./data/primers.fasta -perc_identity 90 -task blastn -outfmt 5 -db my_fasta -out my_fasta.xml
+% blastn -query ./data/primers.fasta -perc_identity 90 -task blastn -word_size 6 -outfmt 5 -db my_fasta -out my_fasta.xml
 ```
 #### Clermontyping launch
 
